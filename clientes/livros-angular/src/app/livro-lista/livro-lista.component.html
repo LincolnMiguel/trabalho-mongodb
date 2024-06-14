@@ -1,0 +1,30 @@
+<main role="main" class="container">
+    <h1>Listagem de Livros</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Título</th>
+                <th scope="col">Editora</th>
+                <th scope="col">Autores</th>
+                <th scope="col">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let livro of livros">
+                <th scope="row">{{ livro.codigo }}</th>
+                <td>{{ livro.titulo }}</td>
+                <td>{{ obterNome(livro.codEditora) }}</td>
+                <td>
+                    <ul>
+                        <li *ngFor="let autor of livro.autores">{{ autor }}</li>
+                    </ul>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-danger" (click)="excluir(livro.codigo)">Excluir</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</main>
